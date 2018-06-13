@@ -1,0 +1,19 @@
+Basic Principles
+Object Orientation
+Abstraction
+Encapsulation
+Modularity
+Hierarchy
+
+FIRT LEVEL
+ECOND LEVEL 
+THIRD LEVEL 
+
+DFD rules
+1)7+-2 
+2)Entities are only shown
+  at first level
+3)Based on rule 2 follow strictly
+  the numbering 
+4)Exeptions are allowed only in
+  lower levels

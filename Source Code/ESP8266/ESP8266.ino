@@ -2,7 +2,7 @@
 
 short wifiStatus;
 
-const char* ssid     = "hope you're okay";
+const char* ssid     = "i hope you're okay";
 const char* password = "takecare";  
 
 WiFiServer server(80);

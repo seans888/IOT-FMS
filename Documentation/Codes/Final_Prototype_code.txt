@@ -55,7 +55,7 @@ for i in infinite_loop():
     time.sleep(1)
 
     # Open database connection
-    db = pymysql.connect("localhost", "marco", "meliodas123", "iott")
+    db = pymysql.connect("localhost", "admin2", "meliodas123", "iot")
 
     # prepare a cursor object using cursor() method
     cursor = db.cursor()
@@ -85,5 +85,9 @@ for i in infinite_loop():
              break
     # disconnect from server
     db.close()
+
+
+
+
 
 

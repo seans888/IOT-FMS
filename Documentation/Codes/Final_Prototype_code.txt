@@ -1,0 +1,89 @@
+import time
+import datetime
+import pymysql
+from time import localtime, strftime
+
+
+#Current Date
+tday = datetime.date.today()
+print(tday)
+
+
+# initializing our date for today in a variable
+tWday= datetime.date.today()
+day_of_week= tWday.isoweekday()
+
+#display week of the day
+print("today is:")
+if day_of_week == 1:
+    day = "monday"
+    print(day)
+elif day_of_week == 2:
+    day = "tuesday"
+    print(day)
+elif day_of_week == 3:
+    day = "wednesday"
+    print(day)
+elif day_of_week == 4:
+    day = "thursday"
+    print(day)
+elif day_of_week == 5:
+    day = "friday"
+    print(day)
+elif day_of_week == 6:
+    day = "saturday"
+    print(day)
+elif day_of_week == 7:
+    day = "sunday"
+    print(day)
+
+
+# A function that contains an infinite loop sequence
+def infinite_loop():
+    while True:
+        yield True
+
+# An infinite loop that repeat the process
+for i in infinite_loop():
+
+    # preparing our current time of the day running
+    HM_time = strftime(strftime('%X', localtime()))
+    Hour_Min = str(HM_time)
+    print(Hour_Min)
+
+    # time interval 1sec
+    time.sleep(1)
+
+    # Open database connection
+    db = pymysql.connect("localhost", "marco", "meliodas123", "iott")
+
+    # prepare a cursor object using cursor() method
+    cursor = db.cursor()
+
+    # query in database to get day attribute from ftime table
+    cursor.execute("SELECT Days from ftest;")
+
+    # placing the day data inside a variable
+    data = cursor.fetchall()
+
+    #checking the attributes day,start_time, and end_time
+    for row in data:
+         if row[0] == day:
+             cursor.execute("SELECT start_time from ftest;")  #  query in database to get start_time attribute from ftime table
+             data2 = cursor.fetchall()                        # placing the start_time data inside a variable
+             for row2 in data2:                               #checking the start_time attribute
+                 if row2[0] == Hour_Min:
+                     GPIO.setmode(GPIO.BCM)
+		     GPIO.setup(4, GPIO.OUT
+		     GPIO.output(4, True)
+
+             cursor.execute("SELECT end_time from ftest;")   #query in database to get end_time attribute from ftime table
+             data1 = cursor.fetchall()                       # placing the start_time data inside a variable
+             for row1 in data1:                              #checking the end_time attribute
+                 if row1[0] == Hour_Min:
+                     GPIO.OUTPUT(4, False)
+             break
+    # disconnect from server
+    db.close()
+
+

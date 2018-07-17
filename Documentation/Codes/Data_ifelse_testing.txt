@@ -1,0 +1,35 @@
+#Testing the database connection, time interval for time, fetching of data, and the checking of data for start time and end time.
+
+
+import time
+import pymysql
+start_timee=time.localtime()
+from time import localtime, strftime
+for i in range(200):
+    HM_time = strftime(strftime('%X', localtime()))
+    hours = str(HM_time)
+    print(hours)
+    time.sleep(1)
+    # Open database connection
+    db = pymysql.connect("localhost","marco","meliodas123","iott" )
+
+# prepare a cursor object using cursor() method
+    cursor = db.cursor()
+
+    # execute SQL query using execute() method.
+    cursor.execute("SELECT start_time from ftest;")
+    # Fetch a single row using fetchone() method.
+    data = cursor.fetchall()
+    for row in data: # While loops always make me shudder!
+        if row[0] == hours:
+            print("on lights")
+    cursor.execute("SELECT end_time from ftest;")
+    data1 = cursor.fetchall()
+    for row1 in data1:
+         if row1[0] == hours:
+             print("off lights")
+    # disconnect from server
+    db.close()
+
+
+

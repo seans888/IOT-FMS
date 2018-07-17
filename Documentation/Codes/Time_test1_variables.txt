@@ -1,0 +1,21 @@
+#Testing the Hour with min variable, Hour variable, and Minute variables  and displaying them
+
+import pymysql
+import datetime
+import time
+from time import localtime, strftime
+start_time=time.localtime()
+hour_time=strftime(strftime('%H', localtime()))
+minute_time=strftime(strftime('%M', localtime()))
+HM_time = strftime(strftime('%X', localtime()))
+print(HM_time)
+print(hour_time)
+print(minute_time)
+
+for i in range(100):
+    HM_time = strftime(strftime('%X', localtime()))
+    hours = str(HM_time)
+    print(hours)
+    time.sleep(1)
+    if hours == 3:
+        print("success")

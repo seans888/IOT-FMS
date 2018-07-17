@@ -47,7 +47,7 @@ def infinite_loop():
 for i in infinite_loop():
 
     # preparing our current time of the day running
-    HM_time = strftime(strftime('%X', localtime()))
+    HM_time = strftime(strftime('%I'+':'+'%M'+':'+'%S'+'%p', localtime()))
     Hour_Min = str(HM_time)
     print(Hour_Min)
 

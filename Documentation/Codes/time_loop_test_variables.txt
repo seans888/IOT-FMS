@@ -1,0 +1,16 @@
+#testing the time variables,modules and infinite loop
+
+import time
+import datetime
+import pymysql
+
+def infinite_loop():
+    while True:
+        yield True
+
+for i in infinite_loop():
+    localtime = time.localtime(time.time())
+    print("Local current time :", localtime)
+    time.sleep(1)
+    tday = datetime.date.today()
+    print(tday)

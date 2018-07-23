@@ -86,7 +86,7 @@ in a room.</y:NodeLabel>
           <y:Geometry height="76.0" width="178.0" x="295.00200932902743" y="468.27039827771824"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="56.67578125" x="60.662109375" y="28.6494140625">FACILITY<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="56.67578125" x="60.662109375" y="28.649414062499943">FACILITY<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -436,8 +436,7 @@ Facility</y:NodeLabel>
           <y:Geometry height="147.0" width="147.0" x="306.8686759956942" y="563.3572213824116"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="106.703125" x="20.1484375" y="56.798828125">Reactivates the
- facilities in a room.</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="132.724609375" x="7.1376953125" y="64.1494140625">Reactivation of facilities.</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
           </y:StyleProperties>
@@ -842,7 +841,6 @@ Type<y:LabelModel>
       </data>
     </edge>
     <edge id="e19" source="n5" target="n4">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-49.83117599569414" sy="10.796268388948363" tx="88.97924067097273" ty="17.78682310469327">
@@ -864,7 +862,6 @@ Facility<y:LabelModel>
       </data>
     </edge>
     <edge id="e20" source="n25" target="n2">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-9.368675995693991" sy="-25.190554715744952" tx="1.5021573376395736" ty="48.74694528425516">
@@ -886,7 +883,6 @@ Details<y:LabelModel>
       </data>
     </edge>
     <edge id="e21" source="n25" target="n8">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>

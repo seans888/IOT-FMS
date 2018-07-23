@@ -947,8 +947,7 @@ Availability</y:NodeLabel>
           <y:Geometry height="147.0" width="147.0" x="807.3471297729607" y="104.12245191656979"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="106.703125" x="20.1484375" y="56.798828125">Reactivates the
- facilities in a room.</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="132.724609375" x="7.1376953125" y="64.1494140625">Reactivation of facilities.</y:NodeLabel>
           <y:StyleProperties>
             <y:Property class="java.lang.Boolean" name="y.view.ShadowNodePainter.SHADOW_PAINTING" value="true"/>
           </y:StyleProperties>
@@ -1590,7 +1589,6 @@ Type<y:LabelModel>
       </data>
     </edge>
     <edge id="e33" source="n46" target="n45">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1601,7 +1599,6 @@ Type<y:LabelModel>
       </data>
     </edge>
     <edge id="e34" source="n18" target="n56">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="-12.512684132487266" sy="89.67964513461641" tx="46.095604349751966" ty="9.779844459461913"/>
@@ -1620,7 +1617,6 @@ Type<y:LabelModel>
       </data>
     </edge>
     <edge id="e35" source="n56" target="n16">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-48.437119008698005" ty="56.21096913892205">
@@ -1641,7 +1637,6 @@ Type<y:LabelModel>
       </data>
     </edge>
     <edge id="e36" source="n56" target="n38">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>

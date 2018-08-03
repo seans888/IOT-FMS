@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2018 at 07:01 AM
+-- Generation Time: Aug 03, 2018 at 08:56 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -32,9 +32,8 @@ CREATE TABLE `facility` (
   `room` varchar(5) NOT NULL,
   `FACILITY_air_conditioner` enum('0','1') NOT NULL COMMENT '1st aircondtion',
   `FACILITY_airconditioner_2` enum('0','1') DEFAULT NULL COMMENT '2nd aircondition',
+  `FACILITY_airconditioner_3` enum('0','1') DEFAULT NULL COMMENT '3rd aircondition',
   `FACILITY_lights` enum('0','1') NOT NULL COMMENT 'controlled through the central switch ',
-  `FACILITY_computers` enum('0','1') DEFAULT NULL COMMENT 'controlled through the central switch',
-  `FACILITY_projectors` enum('0','1') DEFAULT NULL COMMENT 'not controlled but monitored',
   `CLASS_STATUS_id` int(5) DEFAULT NULL,
   `REPORTS_id` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

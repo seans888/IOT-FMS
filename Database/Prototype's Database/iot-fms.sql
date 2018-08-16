@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2018 at 05:34 AM
+-- Generation Time: Aug 16, 2018 at 06:23 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -21,6 +21,17 @@ SET time_zone = "+00:00";
 --
 -- Database: `iot-fms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `account_details`
+--
+
+CREATE TABLE `account_details` (
+  `id` smallint(6) NOT NULL,
+  `account_details_role` char(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -85,7 +96,8 @@ CREATE TABLE `facility_controller` (
 CREATE TABLE `facility_reports` (
   `id` smallint(6) NOT NULL,
   `description` text NOT NULL,
-  `Room_id` char(5) NOT NULL
+  `Room_id` char(5) NOT NULL,
+  `user_account_id` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -180,9 +192,29 @@ CREATE TABLE `room_reports` (
   `room` char(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_account`
+--
+
+CREATE TABLE `user_account` (
+  `id` smallint(6) NOT NULL,
+  `user_account_username` char(12) NOT NULL,
+  `user_account_password` binary(16) NOT NULL,
+  `user_account_role` smallint(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `account_details`
+--
+ALTER TABLE `account_details`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `account_details_role` (`account_details_role`);
 
 --
 -- Indexes for table `class_status`
@@ -211,7 +243,8 @@ ALTER TABLE `facility_controller`
 --
 ALTER TABLE `facility_reports`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `Room_id` (`Room_id`);
+  ADD KEY `Room_id` (`Room_id`),
+  ADD KEY `user_account_id` (`user_account_id`);
 
 --
 -- Indexes for table `refemployeedtr`
@@ -252,6 +285,14 @@ ALTER TABLE `room_group`
 ALTER TABLE `room_reports`
   ADD PRIMARY KEY (`id`),
   ADD KEY `room` (`room`);
+
+--
+-- Indexes for table `user_account`
+--
+ALTER TABLE `user_account`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `user_account_username` (`user_account_username`),
+  ADD KEY `user_account_role` (`user_account_role`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -300,6 +341,12 @@ ALTER TABLE `room_reports`
   MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `user_account`
+--
+ALTER TABLE `user_account`
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -322,7 +369,8 @@ ALTER TABLE `facility_controller`
 -- Constraints for table `facility_reports`
 --
 ALTER TABLE `facility_reports`
-  ADD CONSTRAINT `facility_reports_ibfk_1` FOREIGN KEY (`Room_id`) REFERENCES `room` (`Room_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `facility_reports_ibfk_1` FOREIGN KEY (`Room_id`) REFERENCES `room` (`Room_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `facility_reports_ibfk_2` FOREIGN KEY (`user_account_id`) REFERENCES `user_account` (`user_account_role`);
 
 --
 -- Constraints for table `refsubjectofferingdtl`
@@ -347,6 +395,12 @@ ALTER TABLE `room_facility_count`
 --
 ALTER TABLE `room_reports`
   ADD CONSTRAINT `room_reports_ibfk_1` FOREIGN KEY (`room`) REFERENCES `facility_controller` (`room`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user_account`
+--
+ALTER TABLE `user_account`
+  ADD CONSTRAINT `user_account_ibfk_1` FOREIGN KEY (`user_account_role`) REFERENCES `account_details` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2018 at 07:20 AM
+-- Generation Time: Aug 17, 2018 at 07:36 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -131,7 +131,8 @@ CREATE TABLE `refsubjectofferingdtl` (
   `day` char(3) DEFAULT NULL,
   `room` varchar(5) NOT NULL,
   `room_type` enum('Lec','Lab') NOT NULL,
-  `emp_id` int(11) NOT NULL
+  `emp_id` int(11) NOT NULL,
+  `refSubjectOfferingDtl_class_type` enum('Senior High School','College') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

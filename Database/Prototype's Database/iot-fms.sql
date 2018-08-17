@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2018 at 06:23 AM
+-- Generation Time: Aug 17, 2018 at 07:20 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -96,6 +96,7 @@ CREATE TABLE `facility_controller` (
 CREATE TABLE `facility_reports` (
   `id` smallint(6) NOT NULL,
   `description` text NOT NULL,
+  `facility_reports_created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `Room_id` char(5) NOT NULL,
   `user_account_id` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -202,7 +203,8 @@ CREATE TABLE `user_account` (
   `id` smallint(6) NOT NULL,
   `user_account_username` char(12) NOT NULL,
   `user_account_password` binary(16) NOT NULL,
-  `user_account_role` smallint(6) NOT NULL
+  `user_account_role` smallint(6) NOT NULL,
+  `user_account_created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -314,7 +316,7 @@ ALTER TABLE `class_status_type`
 -- AUTO_INCREMENT for table `facility_reports`
 --
 ALTER TABLE `facility_reports`
-  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `refemployeedtr`
@@ -360,17 +362,17 @@ ALTER TABLE `class_status`
 -- Constraints for table `facility_controller`
 --
 ALTER TABLE `facility_controller`
-  ADD CONSTRAINT `facility_controller_ibfk_1` FOREIGN KEY (`room`) REFERENCES `room_facility_count` (`room_number`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `facility_controller_ibfk_2` FOREIGN KEY (`class_status_id`) REFERENCES `class_status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `facility_controller_ibfk_3` FOREIGN KEY (`refEmployeeDtr_id`) REFERENCES `refemployeedtr` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `facility_controller_ibfk_4` FOREIGN KEY (`subject_offering_id`) REFERENCES `refsubjectofferingdtl` (`subject_offering_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `facility_controller_ibfk_4` FOREIGN KEY (`subject_offering_id`) REFERENCES `refsubjectofferingdtl` (`subject_offering_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `facility_controller_ibfk_5` FOREIGN KEY (`room`) REFERENCES `room` (`Room_id`);
 
 --
 -- Constraints for table `facility_reports`
 --
 ALTER TABLE `facility_reports`
-  ADD CONSTRAINT `facility_reports_ibfk_1` FOREIGN KEY (`Room_id`) REFERENCES `room` (`Room_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `facility_reports_ibfk_2` FOREIGN KEY (`user_account_id`) REFERENCES `user_account` (`user_account_role`);
+  ADD CONSTRAINT `facility_reports_ibfk_2` FOREIGN KEY (`user_account_id`) REFERENCES `user_account` (`user_account_role`),
+  ADD CONSTRAINT `facility_reports_ibfk_3` FOREIGN KEY (`Room_id`) REFERENCES `room` (`Room_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `refsubjectofferingdtl`

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2018 at 04:13 AM
+-- Generation Time: Aug 27, 2018 at 04:24 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `account_details` (
   `id` smallint(6) NOT NULL,
-  `account_details_role` char(12) NOT NULL
+  `account_details_role` enum('Student','Professor','Admin','Super Admin') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

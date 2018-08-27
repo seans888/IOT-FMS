@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 26, 2018 at 04:22 PM
+-- Generation Time: Aug 27, 2018 at 04:13 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -226,7 +226,7 @@ CREATE TABLE `user_account` (
   `id` smallint(6) NOT NULL,
   `user_account_username` char(12) NOT NULL,
   `user_account_password` binary(16) NOT NULL,
-  `user_account_role` smallint(6) NOT NULL,
+  `account_details_id` smallint(6) NOT NULL,
   `user_account_created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `user_details_id` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -360,7 +360,8 @@ ALTER TABLE `room_reservations`
 -- Indexes for table `room_reservations_detail`
 --
 ALTER TABLE `room_reservations_detail`
-  ADD KEY `user_account_id` (`user_account_id`);
+  ADD KEY `user_account_id` (`user_account_id`),
+  ADD KEY `id` (`id`);
 
 --
 -- Indexes for table `user_account`
@@ -368,7 +369,7 @@ ALTER TABLE `room_reservations_detail`
 ALTER TABLE `user_account`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `user_account_username` (`user_account_username`),
-  ADD KEY `user_account_role` (`user_account_role`),
+  ADD KEY `user_account_role` (`account_details_id`),
   ADD KEY `user_details_id` (`user_details_id`);
 
 --
@@ -515,13 +516,14 @@ ALTER TABLE `room_reports`
 -- Constraints for table `room_reservations_detail`
 --
 ALTER TABLE `room_reservations_detail`
-  ADD CONSTRAINT `room_reservations_detail_ibfk_1` FOREIGN KEY (`user_account_id`) REFERENCES `user_account` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `room_reservations_detail_ibfk_1` FOREIGN KEY (`user_account_id`) REFERENCES `user_account` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `room_reservations_detail_ibfk_2` FOREIGN KEY (`id`) REFERENCES `room_reservations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user_account`
 --
 ALTER TABLE `user_account`
-  ADD CONSTRAINT `user_account_ibfk_1` FOREIGN KEY (`user_account_role`) REFERENCES `account_details` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_account_ibfk_1` FOREIGN KEY (`account_details_id`) REFERENCES `account_details` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `user_account_ibfk_2` FOREIGN KEY (`user_details_id`) REFERENCES `user_details` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
